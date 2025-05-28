@@ -86,9 +86,15 @@ open target/surefire-reports/emailable-report.html
 
 ---
 
-### Important Notes
+## Important Notes
 
-- The **CheckoutTest** might be failing due to Chrome's popup blocking and interfering with the completion of the test.
+- The **CheckoutTest** might fail due to Chrome's popup blocking and interfering with the completion of the test
 - If this happens, in **src/test/java/com.assessment/base/BaseTest** file, please **comment** _CHROME BROWSER_ block and **uncomment** either _FIREFOX BROWSER_ block or _SAFARI BROWSER_ block
-- Then execute the **src/test/java/com.assessment/tests/CheckoutTest**
-- Then retrieve the report
+- Then execute
+```bash
+mvn clean test
+```
+- Then view the report
+```bash
+open target/surefire-reports/emailable-report.html
+```
