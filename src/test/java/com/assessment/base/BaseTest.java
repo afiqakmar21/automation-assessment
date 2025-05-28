@@ -1,16 +1,22 @@
 package com.assessment.base;
+
 import com.assessment.utilities.Utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
     protected WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
+        // CHROME BROWSER
         // Automatically downloads and configures the correct version of ChromeDriver
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -21,13 +27,24 @@ public class BaseTest {
         // Navigate browser to a specific URL, value declared in Utilities page
         driver.get(Utilities.URL);
 
+//        // SAFARI BROWSER
 //        SafariOptions options = new SafariOptions();
-//
-//        // You can set Safari options here if needed
-//
+//        //Creates a new instance of the Safari browser using Selenium
 //        driver = new SafariDriver(options);
-//
+//        // Maximizes the browser window to full screen
 //        driver.manage().window().maximize();
+//        // Navigate browser to a specific URL, value declared in Utilities page
+//        driver.get(Utilities.URL);
+
+//        // FIREFOX BROWSER
+//        // Automatically sets up GeckoDriver for Firefox
+//        WebDriverManager.firefoxdriver().setup();
+//        // Initialize Firefox browser
+//        // Creates a new instance of the Chrome browser using Selenium
+//        driver = new FirefoxDriver();
+//        // Maximizes the browser window to full screen
+//        driver.manage().window().maximize();
+//        // Navigate browser to a specific URL, value declared in Utilities page
 //        driver.get(Utilities.URL);
 
     }
